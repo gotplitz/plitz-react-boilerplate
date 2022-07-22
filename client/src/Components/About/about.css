@@ -1,0 +1,97 @@
+/* ===================================
+    1. About Sean Acosta
+====================================== */
+.about-profile {
+    background-color: var(--plata);
+}
+
+.about-profile-image {
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+    border-radius: 5px 5px 35px 5px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+}
+
+.about-profile-image img {
+    min-height: 100%;
+    object-fit: cover;
+}
+
+.ap-content {
+    padding: 0 20px;
+}
+
+.ap-content h2 {
+    color: var(--primary);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.ap-content h2::after {
+    content: '';
+    width: 30%;
+    height: 5px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: block;
+    background: linear-gradient(
+        to right,
+        rgba(37, 64, 153, 0.9),
+        rgba(37, 64, 153, 0.4)
+    );
+}
+
+.ap-content-text {
+    white-space: pre-wrap !important;
+}
+
+/* ===================================
+    2. Extra Boxes
+====================================== */
+.ab-title-section {
+    text-align: center;
+    margin-bottom: 70px;
+}
+
+.about-boxes h4 {
+    margin-bottom: 20px;
+}
+
+.ab-bodybox {
+    font-family: var(--fontdos);
+    padding-bottom: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .about-boxes section {
+        width: 90%;
+    }
+
+    .ab-bodybox {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .MuiTimelineItem-root:nth-of-type(even) {
+        flex-direction: row !important;
+        justify-content: flex-start !important;
+    }
+
+    .MuiTimelineItem-root:nth-of-type(even) .MuiTimelineContent-root {
+        text-align: left !important;
+    }
+
+    .MuiTimelineItem-root::before {
+        display: none;
+    }
+
+    .about-boxes section {
+        width: 95%;
+    }
+}

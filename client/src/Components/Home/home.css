@@ -233,7 +233,7 @@ a:focus {
 }
 
 .banner {
-    height: 1000px;
+    height: 800px;
 }
 
 .banner:focus {
@@ -308,7 +308,7 @@ a:focus {
     display: flex;
     flex-wrap: wrap;
     height: auto;
-    width: 35%;
+    width: 50%;
     flex-direction: column;
     padding: 30px 0;
     z-index: 2;
@@ -342,25 +342,24 @@ a:focus {
     text-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
 }
 
-.slick-slide .main-title p {
+.slick-slide .main-title .details {
     color: #fff;
     margin-bottom: 30px;
 }
 
-.slick-slide .main-title .plitz-button {
+.slick-slide .main-title .buttons-container {
     bottom: -18px;
+    opacity: 0;
+    will-change: opacity;
+    display: flex;
 }
 
-.slick-slide .main-title .plitz-button {
-    color: var(--primary) !important;
-    opacity: 0;
-    background-color: #fff !important;
-    will-change: opacity;
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.8);
+.slick-slide .main-title .buttons-container a:nth-child(1) {
+    margin-right: 15px;
 }
 
 .slick-slide .main-title h2,
-.slick-slide .main-title p {
+.slick-slide .main-title .details {
     opacity: 0;
     -webkit-transform: translateY(-20%);
     -ms-transform: translateY(-20%);
@@ -385,14 +384,14 @@ a:focus {
     -webkit-animation: slideUp 1s ease 1s 1 normal forwards;
     animation: slideUp 1s ease 1s 1 normal forwards;
 }
-.slick-current.slick-active .main-title .plitz-button {
-    -webkit-animation: fadeIn 1s ease 1.5s 1 normal forwards;
-    animation: fadeIn 1s ease 1.5s 1 normal forwards;
+.slick-current.slick-active .main-title .buttons-container {
+    -webkit-animation: fadeIn 1s ease 1.7s 1 normal forwards;
+    animation: fadeIn 1s ease 1.7s 1 normal forwards;
 }
 
-.slick-current.slick-active .main-title p {
-    -webkit-animation: slideDown 1s ease 1s 1 normal forwards;
-    animation: slideDown 1s ease 1s 1 normal forwards;
+.slick-current.slick-active .main-title .details {
+    -webkit-animation: slideDown 1s ease 1.5s 1 normal forwards;
+    animation: slideDown 1s ease 1.5s 1 normal forwards;
 }
 
 .slick-current.slick-active .banner-outer img {

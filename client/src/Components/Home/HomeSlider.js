@@ -44,61 +44,102 @@ const HomeSlider = () => {
 				<Slider {...settings}>
 					{sliders.length > 0 &&
 						sliders
-							.sort((a, b) => new Date(a.date) - new Date(b.date))
-							.map((slide) => (
-								<div key={slide._id} className='banner'>
-									<div className='container'>
-										<section>
-											<div className='main-title'>
-												<h2
-													dangerouslySetInnerHTML={{
-														__html: slide.title,
-													}}
-												></h2>
-												{slide.subtitle && (
-													<h3
-														dangerouslySetInnerHTML={{
-															__html: slide.subtitle,
-														}}
-													></h3>
-												)}
-												{slide.moredetails && (
-													<div
-														dangerouslySetInnerHTML={{
-															__html: slide.moredetails,
-														}}
-													></div>
-												)}
-												{slide.btnlone !== '' && (
-													<Link to={slide.btnlone} className='plitz-button'>
-														<span>{slide.btnone}</span>
-													</Link>
-												)}
+							.sort((a, b) => a.order - b.order)
+							.map(
+								(slide) =>
+									slide.isLive && (
+										<div key={slide._id} className='banner'>
+											<div className='container'>
+												<section>
+													<div className='main-title'>
+														<h2
+															dangerouslySetInnerHTML={{
+																__html: slide.title,
+															}}
+														></h2>
+														{slide.subtitle && (
+															<h3
+																dangerouslySetInnerHTML={{
+																	__html: slide.subtitle,
+																}}
+															></h3>
+														)}
+														{slide.details && slide.details !== '' && (
+															<div
+																className='details'
+																dangerouslySetInnerHTML={{
+																	__html: slide.details,
+																}}
+															></div>
+														)}
+														{slide.moredetails && (
+															<div
+																dangerouslySetInnerHTML={{
+																	__html: slide.moredetails,
+																}}
+															></div>
+														)}
+														<div className='buttons-container'>
+															{slide.buttons &&
+																slide.buttons.length > 0 &&
+																slide.buttons
+																	.sort((a, b) => a.postion - b.postion)
+																	.map((button) =>
+																		button.link.startsWith('http') ? (
+																			<a
+																				key={button._id}
+																				href={button.link}
+																				target='_blank'
+																				rel='noreferrer'
+																				className={
+																					button.primary
+																						? 'plitz-button'
+																						: 'plitz-button-sec'
+																				}
+																			>
+																				<span>{button.label}</span>
+																			</a>
+																		) : (
+																			<Link
+																				key={button._id}
+																				to={button.link}
+																				className={
+																					button.primary
+																						? 'plitz-button'
+																						: 'plitz-button-sec'
+																				}
+																			>
+																				<span>{button.label}</span>
+																			</Link>
+																		)
+																	)}
+														</div>
+													</div>
+												</section>
 											</div>
-										</section>
-									</div>
 
-									<div className='slider-overlay'></div>
+											<div className='slider-overlay'></div>
 
-									<div className='banner-outer'>
-										<picture>
-											<source
-												media='(max-width: 600px)'
-												srcSet={`http://192.168.0.58:7007/uploads${slide.img}`}
-												alt={slide.title}
-												width='600'
-												height='400'
-											/>
-											<img
-												src={`http://192.168.0.58:7007/uploads${slide.img}`}
-												alt={slide.title}
-												width='1500'
-												height='1000'
-											/>
-										</picture>
-									</div>
-								</div>
-							))}
+											<div className='banner-outer'>
+												<picture>
+													<source
+														media='(max-width: 600px)'
+														srcSet={`http://192.168.0.58:7007/${slide.featuredimg}`}
+														alt={slide.title}
+														width='600'
+														height='400'
+													/>
+													<img
+														src={`http://192.168.0.58:7007/${slide.featuredimg}`}
+														alt={slide.title}
+														width='1500'
+														height='1000'
+													/>
+												</picture>
+											</div>
+										</div>
+									)
+							)}
 				</Slider>
 			)}
 		</div>

@@ -379,6 +379,28 @@ section {
     transition: all 0.3s ease-in;
 }
 
+.plitz-button-sec {
+    background-color: transparent;
+    padding: 15px 35px;
+    color: #fff;
+    font-family: var(--fontuno);
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 5px 5px 35px 5px;
+    border: 2px solid #fff;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+}
+
+.plitz-button-sec:hover {
+    background-color: var(--tercero);
+    color: #fff;
+    text-decoration: none !important;
+    border-radius: 5px 35px 35px 5px;
+    border: 2px solid var(--tercero);
+    transition: all 0.3s ease-in;
+}
+
 .MuiFormLabel-root {
     font-family: var(--fontdos) !important;
 }

@@ -11,7 +11,7 @@ import ReadingReviews from '../../Images/woman-checking-reviews.jpg';
 
 const HomeTestimonials = () => {
 	const [testimonials, setTestiomonials] = useState({});
-	const [loading, setLoading] = useState(true);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		const GetData = async () => {
@@ -19,8 +19,9 @@ const HomeTestimonials = () => {
 				.get('http://192.168.0.58:7007/api/testimonials')
 				.then((res) => {
 					setTestiomonials(res.data);
-					setLoading(false);
 				});
+
+			setLoading(true);
 		};
 
 		return GetData();
@@ -63,7 +64,13 @@ const HomeTestimonials = () => {
 								<div className='centered-title-light'>
 									<h3>What our clients are saying about us</h3>
 								</div>
-								<Testimonials testimonials={testimonials} />
+								{testimonials && testimonials.length > 0 ? (
+									<Testimonials testimonials={testimonials} />
+								) : (
+									<p style={{ textAlign: 'center' }}>
+										This website doesn't have testimonials yet
+									</p>
+								)}
 							</div>
 						)}
 					</Grid>

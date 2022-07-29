@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
+import Helmet from 'react-helmet';
 
 import Routes from './Routes';
 
@@ -71,6 +72,13 @@ const App = () => {
 
 	return (
 		<Router>
+			<Helmet>
+				<script
+					src={`https://kit.fontawesome.com/${process.env.REACT_APP_FONTAWESOME}.js`}
+					type='text/javascript'
+					crossorigin='anonymous'
+				></script>
+			</Helmet>
 			<TopBar />
 			<MenuBar pages={pages} subuno={subuno} subdos={subdos} />
 			<Suspense fallback={<Spinning />}>
